@@ -1,0 +1,113 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #fad0c4; /* Fondo rosado pastel */
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.background img {
+    position: absolute;
+    max-width: 100px;
+    max-height: 100px;
+    transition: opacity 1s ease-in-out;
+}
+
+.container {
+    text-align: center;
+    z-index: 1;
+}
+
+.piano {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+    height: 100px; /* Aumentar altura para la caída */
+}
+
+.key {
+    width: 40px;
+    height: 150px;
+    margin: 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 12px;
+    border-radius: 5px;
+    position: absolute; /* Para animación de caída */
+    top: -800px; /* Fuera de la vista inicial */
+    transition: top 1s ease-in-out, left 1s ease-in-out; /* Transiciones para top y left */
+}
+
+.key.white {
+    background: #fff;
+}
+
+.key.black {
+    background: #000;
+    height: 100px;
+    width: 30px;
+    margin-left: -15px;
+    margin-right: -15px;
+    z-index: 1;
+    color: #fff;
+}
+
+.message {
+    font-size: 2em;
+    color: #ff0000; 
+    animation: fadeIn 2s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.key.active {
+    transform: scale(1.1);
+}
+
+img {
+    max-width: 250px !important;
+    max-height: 200px !important;
+    border-radius: 30%;
+}	
+
+/* Estilos para móviles */
+@media (max-width: 600px) {
+    .key {
+        width: 30px;
+        height: 100px;
+    }
+    .key.black {
+        height: 70px;
+        width: 20px;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    .message {
+        font-size: 1.5em;
+    }
+}
